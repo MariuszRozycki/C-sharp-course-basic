@@ -1,39 +1,91 @@
 ﻿using System;
+using System.Text;
 
 namespace FirstProject
-
 {
-
     class Program
     {
-
-        static void Main()
+        static void Main(string[] args)
         {
-            Console.WriteLine("Type in your name:");
+            int result;
+            int x = 10;
+            int y = 5;
 
-            string name = Console.ReadLine();
+            result = (x + y);
+            Console.WriteLine("Addition Operator: x + y = " + result);
 
-            Console.WriteLine("Hello");
-            Console.WriteLine(name);
+            result = (x - y);
+            Console.WriteLine("Subtraction Operator: x - y = " + result);
 
-            string someText = "Some text";
+            result = (x * y);
+            Console.WriteLine("Multiplication Operator: x * y = " + result);
 
-            char jChar = 'j';
-            char jCharUnicode = '\u006A';
+            result = (x / y);
+            Console.WriteLine("Division Operator: x / y = " + result);
 
-            bool isUserReady = true;
+            result = (x % y);
+            Console.WriteLine("Modulo Operator: x % y = " + result);
 
-            DateTime now = DateTime.Now;
+            int value = (2 + 2) * 5; //20
 
-            Console.WriteLine(now.ToString());
-            DateTime dateOfBirth = new DateTime(1983, 4, 20);
+            Console.WriteLine("*******************");
 
-            Console.WriteLine(dateOfBirth.ToString());
+            int value1 = 10;
+            int value2 = 10;
 
-            byte byteNumber = 200;
-            float floatNumber = 1.5F;
-            decimal decimalNumber = 1.5M;
-            double doubleNumber = 1.5;
+            Console.WriteLine("Pre-increment result:");
+            Console.WriteLine(++value1);
+
+
+            Console.WriteLine("Post-increment result:");
+            Console.WriteLine(value2++);
+            Console.WriteLine(value2);
+
+            Console.WriteLine("***************");
+            bool boolResult;
+            x = 2;
+            y = 10;
+
+            boolResult = (x == y);
+            Console.WriteLine("Equal to Operator: (x == y) = " + boolResult);
+
+            boolResult = (x > y);
+            Console.WriteLine("Greater than Operator: (x > y) = " + boolResult);
+
+            boolResult = (x < y);
+            Console.WriteLine("Less than Operator: (x < y) = " + boolResult);
+
+            boolResult = (x >= y);
+            Console.WriteLine("Greater than or Equal to: (x >= y) =  " + boolResult);
+
+            boolResult = (x <= y);
+            Console.WriteLine("Lesser than or Equal to: (x <= y) = " + boolResult);
+
+            boolResult = (x != y);
+            Console.WriteLine("Not Equal to Operator: (x != y) = " + boolResult);
+
+            Console.WriteLine("***************");
+
+            bool a = true;
+            bool b = false;
+
+            boolResult = a && b;
+            Console.WriteLine("AND Operator: a && b = " + boolResult);
+
+            boolResult = a || b;
+            Console.WriteLine("OR Operator: a || b = " + boolResult);
+
+            boolResult = !a;
+            Console.WriteLine("NOT Operator: !a = " + boolResult);
+
+            Console.WriteLine("***************");
+            x = 5;
+            y = 10;
+
+            int greaterNumber = x > y ? x : y;
+            Console.WriteLine("Ternary conditional operator: x > y ? x : y = " + greaterNumber);
+
+
+        }
     }
-}
 }
