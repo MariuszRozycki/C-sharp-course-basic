@@ -1,39 +1,40 @@
 ﻿using System;
+using System.Text;
 
 namespace FirstProject
-
 {
-
     class Program
     {
-
-        static void Main()
+        static void Main(string[] args)
         {
-            Console.WriteLine("Type in your name:");
+            string message1;
+            message1 = "some value";
+            Console.WriteLine(message1);
 
-            string name = Console.ReadLine();
+            string message2 = null;
+            Console.WriteLine(message2);
+            string message3 = string.Empty;
+            string text = "He said \"Hi\"";
+            Console.WriteLine(text);
+            string windowLocation = "c:\\windows";
+            Console.WriteLine(windowLocation);
+            string fontsFolder = @"c:\windows\fonts";
+            Console.WriteLine(fontsFolder);
+            string concatenated = string.Concat(text, " to ", "me");
+            string concatenated2 = text + " to " + "me";
+            Console.WriteLine(concatenated);
+            Console.WriteLine(concatenated2);
 
-            Console.WriteLine("Hello");
-            Console.WriteLine(name);
+            string interpolated = $"{text} to me";
+            Console.WriteLine(interpolated);
+            StringBuilder sb = new StringBuilder("This");
+            sb.Append("is");
+            sb.Append("a");
+            sb.Append("long");
+            sb.Append("text");
 
-            string someText = "Some text";
-
-            char jChar = 'j';
-            char jCharUnicode = '\u006A';
-
-            bool isUserReady = true;
-
-            DateTime now = DateTime.Now;
-
-            Console.WriteLine(now.ToString());
-            DateTime dateOfBirth = new DateTime(1983, 4, 20);
-
-            Console.WriteLine(dateOfBirth.ToString());
-
-            byte byteNumber = 200;
-            float floatNumber = 1.5F;
-            decimal decimalNumber = 1.5M;
-            double doubleNumber = 1.5;
+            string result = sb.ToString();
+            Console.WriteLine(result);
+        }
     }
-}
 }
