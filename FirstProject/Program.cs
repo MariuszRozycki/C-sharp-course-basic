@@ -1,39 +1,29 @@
 ﻿using System;
+using System.Text;
+using System.Threading.Channels;
 
 namespace FirstProject
-
 {
-
+    #region ProgramClassRegion
     class Program
     {
-
-        static void Main()
+        /// <summary>
+        /// main method description
+        /// </summary>
+        /// <param name="args">args description</param>
+        static void Main(string[] args)
         {
-            Console.WriteLine("Type in your name:");
+            Console.WriteLine("");
 
-            string name = Console.ReadLine();
+            int value = (2 + 2) * 5; //20
+            // this is a single line comment
 
-            Console.WriteLine("Hello");
-            Console.WriteLine(name);
-
-            string someText = "Some text";
-
-            char jChar = 'j';
-            char jCharUnicode = '\u006A';
-
-            bool isUserReady = true;
-
-            DateTime now = DateTime.Now;
-
-            Console.WriteLine(now.ToString());
-            DateTime dateOfBirth = new DateTime(1983, 4, 20);
-
-            Console.WriteLine(dateOfBirth.ToString());
-
-            byte byteNumber = 200;
-            float floatNumber = 1.5F;
-            decimal decimalNumber = 1.5M;
-            double doubleNumber = 1.5;
+            /* This
+            is 
+            a 
+            multi-line comment */
+        }
     }
-}
+    #endregion
+
 }
