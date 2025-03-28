@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+using System.Threading.Channels;
 
 namespace FirstProject
 
@@ -6,34 +8,39 @@ namespace FirstProject
 
     class Program
     {
+        public class ParkingCalculator
+        {
+            public static double CalculateParkingFee(int hours)
+            {
+                double result = 0;
+
+                switch (hours)
+                {
+                    case 0:
+                        result = 0;
+                        break;
+
+                    case 1:
+                        result = 5;
+                        break;
+
+                    default:
+                        result = 5 + (hours - 1) * 3;
+                        break;
+                }
+
+                
+             
+                return result;
+            }
+        }
 
         static void Main()
         {
-            Console.WriteLine("Type in your name:");
+            int hours = 3;
+            double result = ParkingCalculator.CalculateParkingFee(hours);
 
-            string name = Console.ReadLine();
-
-            Console.WriteLine("Hello");
-            Console.WriteLine(name);
-
-            string someText = "Some text";
-
-            char jChar = 'j';
-            char jCharUnicode = '\u006A';
-
-            bool isUserReady = true;
-
-            DateTime now = DateTime.Now;
-
-            Console.WriteLine(now.ToString());
-            DateTime dateOfBirth = new DateTime(1983, 4, 20);
-
-            Console.WriteLine(dateOfBirth.ToString());
-
-            byte byteNumber = 200;
-            float floatNumber = 1.5F;
-            decimal decimalNumber = 1.5M;
-            double doubleNumber = 1.5;
-    }
+            Console.WriteLine($"You have to pay {result} PLN for {hours} hours.");
+        }
 }
 }
