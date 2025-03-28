@@ -1,39 +1,47 @@
 ﻿using System;
+using System.Text;
+using System.Threading.Channels;
 
 namespace FirstProject
-
 {
+    public class GradeCalculator
+    {
+        public static string CalculateGreade(double percentage)
+        {
+            if (percentage >= 90)
+            {
+                return "A";
+            }
+            else if (percentage >= 80)
+            {
+                return "B";
+            }
+            else if (percentage >= 70)
+            {
+                return "C";
+            }
+            else if (percentage >= 60)
+            {
+                return "D";
+            }
+            else
+            {
+                return "F";
+            }
+        }
+
+    }
 
     class Program
     {
 
         static void Main()
         {
-            Console.WriteLine("Type in your name:");
+   
+            string result = GradeCalculator.CalculateGreade(70);
 
-            string name = Console.ReadLine();
-
-            Console.WriteLine("Hello");
-            Console.WriteLine(name);
-
-            string someText = "Some text";
-
-            char jChar = 'j';
-            char jCharUnicode = '\u006A';
-
-            bool isUserReady = true;
-
-            DateTime now = DateTime.Now;
-
-            Console.WriteLine(now.ToString());
-            DateTime dateOfBirth = new DateTime(1983, 4, 20);
-
-            Console.WriteLine(dateOfBirth.ToString());
-
-            byte byteNumber = 200;
-            float floatNumber = 1.5F;
-            decimal decimalNumber = 1.5M;
-            double doubleNumber = 1.5;
+            Console.WriteLine(result);
+        }
+           
     }
-}
 }
