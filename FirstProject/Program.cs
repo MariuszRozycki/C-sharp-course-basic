@@ -1,46 +1,35 @@
 ﻿using System;
 using System.Text;
-using System.Threading.Channels;
 
 namespace FirstProject
-
 {
-
     class Program
     {
-        public class ParkingCalculator
+        static void Main(string[] args)
         {
-            public static double CalculateParkingFee(int hours)
+            byte byteValue = 100;
+            int intValue = byteValue;
+            byte byteValue2 = (byte)intValue;
+            double doubleValue = 3.5;
+            int intValue2 = (int)doubleValue;
+
+
+            string stringValue2 = intValue2.ToString();
+
+            string userInput = Console.ReadLine();
+            int yearOfBirth;
+            if (int.TryParse(userInput, out yearOfBirth))
             {
-                double result = 0;
+                int age = DateTime.Now.Year - yearOfBirth;
 
-                switch (hours)
-                {
-                    case 0:
-                        result = 0;
-                        break;
-
-                    case 1:
-                        result = 5;
-                        break;
-
-                    default:
-                        result = 5 + (hours - 1) * 3;
-                        break;
-                }
-
-                
-             
-                return result;
+                Console.WriteLine("You are " + age);
             }
-        }
+            else
+            {
+                Console.WriteLine("Incorrect value");
+            }
 
-        static void Main()
-        {
-            int hours = 3;
-            double result = ParkingCalculator.CalculateParkingFee(hours);
 
-            Console.WriteLine($"You have to pay {result} PLN for {hours} hours.");
         }
-}
+    }
 }
