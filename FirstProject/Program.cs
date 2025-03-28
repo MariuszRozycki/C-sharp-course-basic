@@ -1,39 +1,87 @@
 ﻿using System;
+using System.Globalization;
 
 namespace FirstProject
 
 {
-
-    class Program
+    public class BmiCalculator
     {
-
-        static void Main()
+        public static string CalculateBmiCategory(double bmi)
         {
-            Console.WriteLine("Type in your name:");
+            if (bmi <= 18.5)
+            {
+                return "underweight";
+            }
+            else if (bmi <= 24.9)
+            {
+                return "normal weight";
+            }
+            else if (bmi <= 29.9)
+            {
+                return "overweight";
+            }
+            else if (bmi <= 34.9)
+            {
+                return "obesity";
+            }
+            else if (bmi >= 35)
+            {
+                return "massive obesity";
+            }
 
-            string name = Console.ReadLine();
+            return "No values";
+        }
 
-            Console.WriteLine("Hello");
-            Console.WriteLine(name);
+        class Program
+        {
+            static void Main()
+            {
+                Console.WriteLine("Type your weight in kg");
+                string userInputWeight = Console.ReadLine();
+                userInputWeight = userInputWeight.Replace(",", ".");
+                double userWeight;
 
-            string someText = "Some text";
+                if (double.TryParse(userInputWeight, NumberStyles.Float, CultureInfo.InvariantCulture, out userWeight))
+                {
+                    Console.WriteLine($"User weight is {userWeight} in kg");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect value");
+                    return;
+                }
 
-            char jChar = 'j';
-            char jCharUnicode = '\u006A';
+                Console.WriteLine("Type your height in meter");
 
-            bool isUserReady = true;
+                string userInputHeihgt = Console.ReadLine();
+                userInputHeihgt = userInputHeihgt.Replace(",", ".");
+                double userHeight;
 
-            DateTime now = DateTime.Now;
+                if (double.TryParse(userInputHeihgt, NumberStyles.Float, CultureInfo.InvariantCulture, out userHeight))
+                {
 
-            Console.WriteLine(now.ToString());
-            DateTime dateOfBirth = new DateTime(1983, 4, 20);
+                    if (userHeight > 3)
+                    {
+                        userHeight = userHeight / 100;
+                        Console.WriteLine($"User height converted from cm: {userHeight} meters.");
+                    }
 
-            Console.WriteLine(dateOfBirth.ToString());
+                    Console.WriteLine($"User height is {userHeight} meter");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect height value.");
+                }
 
-            byte byteNumber = 200;
-            float floatNumber = 1.5F;
-            decimal decimalNumber = 1.5M;
-            double doubleNumber = 1.5;
+                
+
+                double bmi = userWeight / (userHeight * userHeight);
+                Console.WriteLine($"Your BMI is {bmi}");
+
+                string bmiDetailed = BmiCalculator.CalculateBmiCategory(bmi);
+                Console.WriteLine($"User BMI is {bmi}. That means user has {bmiDetailed}.");
+
+            }
+        }
     }
-}
 }
