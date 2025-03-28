@@ -18,10 +18,12 @@ namespace FirstProject
             int value = (2 + 2) * 5; //20
             // this is a single line comment
 
-            /* This
-            is 
-            a 
-            multi-line comment */
+            ///* this
+            //is 
+            //a 
+            //multi-line comment */
+
+            ///
         }
     }
     #endregion
