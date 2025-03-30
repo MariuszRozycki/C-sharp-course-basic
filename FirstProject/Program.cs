@@ -1,39 +1,20 @@
 ﻿using System;
+using System.Text;
 
 namespace FirstProject
-
 {
-
     class Program
     {
-
-        static void Main()
+        static void Main(string[] args)
         {
-            Console.WriteLine("Type in your name:");
+            Console.WriteLine("To exit, type 'x'");
+            string userInput;
 
-            string name = Console.ReadLine();
-
-            Console.WriteLine("Hello");
-            Console.WriteLine(name);
-
-            string someText = "Some text";
-
-            char jChar = 'j';
-            char jCharUnicode = '\u006A';
-
-            bool isUserReady = true;
-
-            DateTime now = DateTime.Now;
-
-            Console.WriteLine(now.ToString());
-            DateTime dateOfBirth = new DateTime(1983, 4, 20);
-
-            Console.WriteLine(dateOfBirth.ToString());
-
-            byte byteNumber = 200;
-            float floatNumber = 1.5F;
-            decimal decimalNumber = 1.5M;
-            double doubleNumber = 1.5;
+            do
+            {
+                userInput = Console.ReadLine();
+                Console.WriteLine($"Echo: {userInput}");
+            } while (userInput != "x");
+        }
     }
-}
 }
