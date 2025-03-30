@@ -1,39 +1,53 @@
 ﻿using System;
+using System.Text;
 
 namespace FirstProject
-
 {
-
-    class Program
+    public class TemperatureAnalyzer
     {
-
-        static void Main()
+        public static int FindHighestTemperature(int[] temperatures)
         {
-            Console.WriteLine("Type in your name:");
+            int highestTemperature = temperatures[temperatures.Length - 1];
+            foreach (int temperature in temperatures)
+            {
+                if (temperature > highestTemperature)
+                {
+                    highestTemperature = temperature;
+                }
+            }
+            return highestTemperature;
+        }
 
-            string name = Console.ReadLine();
+        public static int FindLowestTemperature(int[] temperatures)
+        {
+            int lowestTemperature = temperatures[0];
+            foreach (int temperature in temperatures)
+            {
+                if (temperature < lowestTemperature)
+                {
+                    lowestTemperature = temperature;
+                }
+            }
+            return lowestTemperature;
+        }
+    
+    
+    
+ 
+    
+        static void Main(string[] args)
+        {
+            int[] temperatures = { 50, 220, 30, 25, 21 };
+            
+        int resultHighest = TemperatureAnalyzer.FindHighestTemperature(temperatures);
 
-            Console.WriteLine("Hello");
-            Console.WriteLine(name);
+            Console.WriteLine($"Highest temperatur: {resultHighest}");
 
-            string someText = "Some text";
+            Console.WriteLine("**************");
 
-            char jChar = 'j';
-            char jCharUnicode = '\u006A';
+        int resultLowest = TemperatureAnalyzer.FindLowestTemperature(temperatures);
 
-            bool isUserReady = true;
-
-            DateTime now = DateTime.Now;
-
-            Console.WriteLine(now.ToString());
-            DateTime dateOfBirth = new DateTime(1983, 4, 20);
-
-            Console.WriteLine(dateOfBirth.ToString());
-
-            byte byteNumber = 200;
-            float floatNumber = 1.5F;
-            decimal decimalNumber = 1.5M;
-            double doubleNumber = 1.5;
+            Console.WriteLine($"Lowest temperatur: {resultLowest}");
+        }
     }
-}
 }
