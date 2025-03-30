@@ -48,6 +48,9 @@ namespace FirstProject
         int resultLowest = TemperatureAnalyzer.FindLowestTemperature(temperatures);
 
             Console.WriteLine($"Lowest temperatur: {resultLowest}");
+
+            Console.WriteLine($"temperatures.Length: {temperatures.Length}");
+            Console.WriteLine($"temperatures[temperatures.Length - 1]: {temperatures[temperatures.Length - 1]}");
         }
     }
 }
