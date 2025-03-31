@@ -9,31 +9,23 @@ namespace FirstProject
 
         static void Main()
         {
-            Console.WriteLine("Type in your name:");
+            Console.WriteLine("Insert bithday");
+            Console.WriteLine("Insert the day: ");
+            int day = int.Parse(Console.ReadLine());
 
-            string name = Console.ReadLine();
+            Console.WriteLine("Insert bithday");
+            Console.WriteLine("Insert the month: ");
+            int month = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Hello");
-            Console.WriteLine(name);
+            Console.WriteLine("Insert bithday");
+            Console.WriteLine("Insert the year: ");
+            int year = int.Parse(Console.ReadLine());
 
-            string someText = "Some text";
+            DateTime dateOfBirth = new DateTime(year, month, day);
 
-            char jChar = 'j';
-            char jCharUnicode = '\u006A';
+            TimeSpan timeSpan = DateTime.Now - dateOfBirth;
 
-            bool isUserReady = true;
-
-            DateTime now = DateTime.Now;
-
-            Console.WriteLine(now.ToString());
-            DateTime dateOfBirth = new DateTime(1983, 4, 20);
-
-            Console.WriteLine(dateOfBirth.ToString());
-
-            byte byteNumber = 200;
-            float floatNumber = 1.5F;
-            decimal decimalNumber = 1.5M;
-            double doubleNumber = 1.5;
+            Console.WriteLine($"You were born: {timeSpan.TotalDays} days ago.");
+        }
     }
-}
 }
