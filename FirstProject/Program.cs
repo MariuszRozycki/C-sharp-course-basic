@@ -1,31 +1,30 @@
 ﻿using System;
+using System.Globalization;
 
 namespace FirstProject
-
 {
-
     class Program
     {
-
         static void Main()
         {
-            Console.WriteLine("Insert bithday");
-            Console.WriteLine("Insert the day: ");
-            int day = int.Parse(Console.ReadLine());
+            Console.WriteLine("Insert your birthday (format: dd.MM.yyyy):");
 
-            Console.WriteLine("Insert bithday");
-            Console.WriteLine("Insert the month: ");
-            int month = int.Parse(Console.ReadLine());
+            string dateOfBirthString = Console.ReadLine();
 
-            Console.WriteLine("Insert bithday");
-            Console.WriteLine("Insert the year: ");
-            int year = int.Parse(Console.ReadLine());
-
-            DateTime dateOfBirth = new DateTime(year, month, day);
-
-            TimeSpan timeSpan = DateTime.Now - dateOfBirth;
-
-            Console.WriteLine($"You were born: {timeSpan.TotalDays} days ago.");
+            if (DateTime.TryParseExact(
+                    dateOfBirthString,
+                    "dd.MM.yyyy",
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out DateTime dateOfBirth))
+            {
+                TimeSpan timeSpan = DateTime.Now - dateOfBirth;
+                Console.WriteLine($"You were born: {Math.Floor(timeSpan.TotalDays)} days ago.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid date format! Please use the format: dd.MM.yyyy (e.g. 31.03.2025)");
+            }
         }
     }
 }
