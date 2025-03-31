@@ -1,39 +1,27 @@
 ﻿using System;
+using System.Reflection;
+using System.Text;
+using System.Threading.Channels;
 
 namespace FirstProject
-
 {
-
     class Program
     {
-
-        static void Main()
+        static void Main(string[] args)
         {
-            Console.WriteLine("Type in your name:");
+            Console.WriteLine("What is your gender? 1 - Male, 2 - Female");
+            string userInput = Console.ReadLine();
 
-            string name = Console.ReadLine();
+            Gender userGender = (Gender)Enum.Parse(typeof(Gender), userInput);
 
-            Console.WriteLine("Hello");
-            Console.WriteLine(name);
-
-            string someText = "Some text";
-
-            char jChar = 'j';
-            char jCharUnicode = '\u006A';
-
-            bool isUserReady = true;
-
-            DateTime now = DateTime.Now;
-
-            Console.WriteLine(now.ToString());
-            DateTime dateOfBirth = new DateTime(1983, 4, 20);
-
-            Console.WriteLine(dateOfBirth.ToString());
-
-            byte byteNumber = 200;
-            float floatNumber = 1.5F;
-            decimal decimalNumber = 1.5M;
-            double doubleNumber = 1.5;
+            if (userGender == Gender.Male)
+            {
+                Console.WriteLine("Only women are allowed");
+            }
+            else
+            {
+                Console.WriteLine("Hi");
+            }
+        }
     }
-}
 }
